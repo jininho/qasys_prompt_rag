@@ -76,10 +76,9 @@ try:
     }
     df = pd.DataFrame(data)
 
+    collection = client.collections.get("TestArticle")
     # 将数据导入Weaviate
-    with client.batch(
-        batch_size=100
-    ) as batch:
+    with collection.batch.dynamic() as batch:
         for i in range(df.shape[0]):
             # print('importing data:{}'.format(i+1))
             properties = {
@@ -87,14 +86,12 @@ try:
                 'sentence':df.sentence[i],
             }
             custom_vector = df.embeddings[i]
-            client.batch.add_data_object(
+            batch.add_object(
                 properties,
-                class_name="TestArticle",
                 vector=custom_vector
             )
     print('import completed')
     print(datetime.datetime.now())
-
 
 
 finally:
