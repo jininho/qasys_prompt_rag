@@ -5,3 +5,4 @@
 ## doker 4.32.0
 
 ## weaviate 1.25.10
+## torch 2.3.0
