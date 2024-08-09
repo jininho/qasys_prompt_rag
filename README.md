@@ -1,7 +1,7 @@
 # qasys_prompt_rag
-##python 
-###python-3.12.4-amd64
+ 
+## python-3.12.4-amd64
 
-##doker 4.32.0
+## doker 4.32.0
 
-##weaviate 1.25.10
+## weaviate 1.25.10
